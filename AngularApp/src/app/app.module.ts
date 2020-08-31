@@ -8,13 +8,19 @@ import { AppComponent } from './app.component';
 import { PatientComponent } from './patient/patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 import { NewPatientComponent } from './patient/new-patient/new-patient.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientComponent,
     ListPatientComponent,
-    NewPatientComponent
+    NewPatientComponent,
+    SidebarComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
