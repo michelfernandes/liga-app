@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var Pacient = mongoose.model('Pacient',{
+var Patient = mongoose.model('Patient',{
     name: {type: String},
     cpf: {type: String},
     dateOfBirth: {type: Date},
@@ -10,4 +10,4 @@ var Pacient = mongoose.model('Pacient',{
     disease: {type: String}
 });
 
-module.exports = { Pacient };
+module.exports = { Patient };

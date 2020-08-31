@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PacientComponent } from './pacient/pacient.component';
-import { ListPacientComponent } from './pacient/list-pacient/list-pacient.component';
-import { NewPacientComponent } from './pacient/new-pacient/new-pacient.component';
+import { PatientComponent } from './patient/patient.component';
+import { ListPatientComponent } from './patient/list-patient/list-patient.component';
+import { NewPatientComponent } from './patient/new-patient/new-patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PacientComponent,
-    ListPacientComponent,
-    NewPacientComponent
+    PatientComponent,
+    ListPatientComponent,
+    NewPatientComponent
   ],
   imports: [
     BrowserModule,

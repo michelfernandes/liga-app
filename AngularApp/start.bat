@@ -1,1 +1,1 @@
-ng serve --open
+ng serve

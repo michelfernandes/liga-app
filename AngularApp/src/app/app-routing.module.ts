@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListPacientComponent } from './pacient/list-pacient/list-pacient.component';
-import { NewPacientComponent } from './pacient/new-pacient/new-pacient.component';
+import { ListPatientComponent } from './patient/list-patient/list-patient.component';
+import { NewPatientComponent } from './patient/new-patient/new-patient.component';
 
 const routes: Routes = [
-  { path: 'pacient/list' , component: ListPacientComponent },
-  { path: 'pacient/new' , component: NewPacientComponent},
-  { path: '' , redirectTo:'/pacient/list', pathMatch: 'full'}
+  { path: 'patient/list' , component: ListPatientComponent },
+  { path: 'patient/new' , component: NewPatientComponent},
+  { path: '' , redirectTo:'/patient/list', pathMatch: 'full'}
 ];
 
 @NgModule({

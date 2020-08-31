@@ -1,0 +1,71 @@
+<button routerLink="/patient/new">CREATE NEW BONECO</button>
+
+
+<table class="table">
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Office</th>
+          <th>Office</th>
+          <th>Office</th>
+          <th>Office</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let patient of patientService.patients">
+          <td>{{patient.name}}</td>
+          <td>{{patient.dateOfBirth}}</td>
+          <td>{{patient.disease}}</td>
+          <td>{{patient.entryDate}}</td>
+          <td>{{patient.cpf}}</td>
+          <td>{{patient.address}}</td>
+          <td>{{patient.phoneNumber}}</td>
+          <td>
+              <a class="btn" (click)="onEdit(patient)">
+                  <i class="material-icons">edit</i>
+              </a>
+              <a class="btn" (click)="onDelete(patient._id,patientForm)">
+                  <i class="material-icons">delete</i>
+              </a>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+<!--
+<table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Office</th>
+        <th>Office</th>
+        <th>Office</th>
+        <th>Office</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tr *ngFor="let patient of patientService.patients">
+      <td>{{patient.name}}</td>
+      <td>{{patient.dateOfBirth}}</td>
+      <td>{{patient.disease}}</td>
+      <td>{{patient.entryDate}}</td>
+      <td>{{patient.cpf}}</td>
+      <td>{{patient.address}}</td>
+      <td>{{patient.phoneNumber}}</td>
+      <td>
+          <a class="action-btn" (click)="onEdit(patient)">
+            <i class="material-icons">edit</i>
+          </a>
+          <a class="action-btn" (click)="onDelete(patient._id,patientForm)">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+    </tr>
+  </table>-->

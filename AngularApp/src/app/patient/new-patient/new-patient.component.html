@@ -1,37 +1,37 @@
-<form #pacientForm="ngForm" (ngSubmit)="onSubmit(pacientForm)">
-    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pacientService.selectedPacient._id">
+<form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="patientService.selectedPatient._id">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="name">Nome:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.name" class="form-control" id="name" >
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name" class="form-control" id="name" >
           </div>
           <div class="form-group col-md-3">
             <label for="CPF">CPF:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.cpf" class="form-control" id="CPF" >
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.cpf" class="form-control" id="CPF" >
           </div>
           <div class="form-group col-md-3">
             <label for="dateOfBirth">Data de Nascimento:</label>
-            <input type="date" name="dateOfBirth" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.dateOfBirth" class="form-control" id="dateOfBirth" >
+            <input type="date" name="dateOfBirth" #name="ngModel" [(ngModel)]="patientService.selectedPatient.dateOfBirth" class="form-control" id="dateOfBirth" >
           </div>          
     </div>
     <div class="form-row">
           <div class="form-group col-md-8">
             <label for="address">Endereço:</label>
-            <input type="text" name="address" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.address" class="form-control" id="address" >
+            <input type="text" name="address" #name="ngModel" [(ngModel)]="patientService.selectedPatient.address" class="form-control" id="address" >
           </div>
           <div class="form-group col-md-4">
             <label for="phoneNumber">Telefone:</label>
-            <input type="text" name="phoneNumber" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.phoneNumber" class="form-control" id="phoneNumber" >
+            <input type="text" name="phoneNumber" #name="ngModel" [(ngModel)]="patientService.selectedPatient.phoneNumber" class="form-control" id="phoneNumber" >
           </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-3">
             <label for="entryDate">Data de Ingresso:</label>
-            <input type="date" name="entryDate" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.entryDate" class="form-control" id="entryDate" >
+            <input type="date" name="entryDate" #name="ngModel" [(ngModel)]="patientService.selectedPatient.entryDate" class="form-control" id="entryDate" >
           </div>
           <div class="form-group col-md-5">
             <label for="disease">Local da Doença:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.disease" class="form-control" id="disease" >
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.disease" class="form-control" id="disease" >
           </div>
     </div>  
      
@@ -39,11 +39,11 @@
   </form>
 <!-- 
 <div>
-    <form #pacientForm="ngForm" (ngSubmit)="onSubmit(pacientForm)"></form>
-    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pacientService.selectedPacient._id">
+    <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)"></form>
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="patientService.selectedPatient._id">
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.name"
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name"
                 placeholder="Enter full name" required>
             <label>Name :
                 <label class="red-text">*</label>
@@ -52,50 +52,50 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="position" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.cpf"
+            <input type="text" name="position" #name="ngModel" [(ngModel)]="patientService.selectedPatient.cpf"
                 placeholder="Eg : Snr. Developer">
             <label>Position :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="date" name="office" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.dateOfBirth"
+            <input type="date" name="office" #name="ngModel" [(ngModel)]="patientService.selectedPatient.dateOfBirth"
                 placeholder="Enter office location">
             <label>Office :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="salary" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.phoneNumber"
+            <input type="text" name="salary" #name="ngModel" [(ngModel)]="patientService.selectedPatient.phoneNumber"
                 placeholder="Salary per annum">
             <label>Salary :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="salary" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.address"
+            <input type="text" name="salary" #name="ngModel" [(ngModel)]="patientService.selectedPatient.address"
                 placeholder="Salary per annum">
             <label>Salary :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="date" name="salary" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.entryDate"
+            <input type="date" name="salary" #name="ngModel" [(ngModel)]="patientService.selectedPatient.entryDate"
                 placeholder="Salary per annum">
             <label>Salary :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="salary" #name="ngModel" [(ngModel)]="pacientService.selectedPacient.disease"
+            <input type="text" name="salary" #name="ngModel" [(ngModel)]="patientService.selectedPatient.disease"
                 placeholder="Salary per annum">
             <label>Salary :</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <button class="btn btn-custom right" type="button" (click)="resetForm(pacientForm)">Reset</button>
-            <button class="btn btn-custom right" type="submit" [disabled]="!pacientForm.valid">Submit</button>
+            <button class="btn btn-custom right" type="button" (click)="resetForm(patientForm)">Reset</button>
+            <button class="btn btn-custom right" type="submit" [disabled]="!patientForm.valid">Submit</button>
         </div>
     </div>
 </div>
