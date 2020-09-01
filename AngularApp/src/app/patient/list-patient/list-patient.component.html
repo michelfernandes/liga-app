@@ -1,32 +1,29 @@
 <div class="float-right">
-  <button  routerLink="/patient/new">Novo Paciente</button>
+  <button class="btn btn-success float-right" routerLink="/patient/new">Novo Paciente</button>
 </div>
-<table class="table">
+<table class="table table-bordered table-sm">
   <thead>
       <tr>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Office</th>
-          <th>Office</th>
-          <th>Office</th>
-          <th>Office</th>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>CPF</th>
+          <th>Endereço</th>
+          <th>Telefone</th>
+          <th>Data de Ingresso</th>
+          <th>Local da Doença</th>
           <th></th>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let patient of patientService.patients">
-          <td>{{patient.name}}</td>
-          <td>{{patient.dateOfBirth}}</td>
-          <td>{{patient.disease}}</td>
-          <td>{{patient.entryDate}}</td>
+          <td><a routerLink="/patient/detail">{{patient.name}}</a></td>
+          <td>{{patient.dateOfBirth | date:"dd/MM/yy"}}</td>
           <td>{{patient.cpf}}</td>
           <td>{{patient.address}}</td>
           <td>{{patient.phoneNumber}}</td>
+          <td>{{patient.entryDate | date:"dd/MM/yy"}}</td>
+          <td>{{patient.disease}}</td>
           <td>
-              <a class="btn" (click)="onEdit(patient)">
-                  <i class="material-icons">edit</i>
-              </a>
               <a class="btn" (click)="onDelete(patient._id,patientForm)">
                   <i class="material-icons">delete</i>
               </a>

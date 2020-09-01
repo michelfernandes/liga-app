@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
 import { PatientService } from '../../shared/patient.service';
@@ -23,6 +24,13 @@ export class ListPatientComponent implements OnInit {
   refreshPatientList() {
     this.patientService.getPatientList().subscribe((res) => {
       this.patientService.patients = res as Patient[];
+    });
+  }
+
+  onDelete(_id: string, form: NgForm) {
+    this.patientService.deletePatient(_id).subscribe((res) => {
+      this.refreshPatientList();
+      //M.toast({ html: 'Deleted successfully', classes: 'rounded' });
     });
   }
 

@@ -43,12 +43,11 @@ export class NewPatientComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    debugger;
     if (form.value._id == "") {
       this.patientService.postPatient(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshPatientList();
-        this.router.navigate(['/patient/new'], { relativeTo: this.route });
+        this.router.navigate(['/patient/list']);
         //M.toast({ html: 'Saved successfully', classes: 'rounded' });
       });
     }
