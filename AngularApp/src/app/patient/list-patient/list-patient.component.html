@@ -16,7 +16,7 @@
   </thead>
   <tbody>
       <tr *ngFor="let patient of patientService.patients">
-          <td><a routerLink="/patient/detail">{{patient.name}}</a></td>
+          <td><a [routerLink]="['/patient', patient._id, 'details']">{{patient.name}}</a></td>
           <td>{{patient.dateOfBirth | date:"dd/MM/yy"}}</td>
           <td>{{patient.cpf}}</td>
           <td>{{patient.address}}</td>

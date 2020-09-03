@@ -21,6 +21,10 @@ export class PatientService {
     return this.http.post(this.baseURL, patient);
   }
 
+  getPatient(_id: string) {
+    return this.http.get(this.baseURL + `/${_id}`);
+  }
+
   getPatientList() {
     return this.http.get(this.baseURL);
   }

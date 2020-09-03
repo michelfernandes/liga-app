@@ -10,6 +10,7 @@ import { NewPatientComponent } from './patient/new-patient/new-patient.component
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { DetailPatientComponent } from './patient/detail-patient/detail-patient.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import { DetailPatientComponent } from './patient/detail-patient/detail-patient.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'xxx'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

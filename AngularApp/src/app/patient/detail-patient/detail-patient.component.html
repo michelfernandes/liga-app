@@ -3,46 +3,64 @@
         <div class="col-md-12 ">
             <div class="row">
                 <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name</h6>
+                    <h6 class="mb-0">Nome</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    Kenneth Valdez
+                    {{ patientService.selectedPatient?.name }}
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-3">
-                    <h6 class="mb-0">Email</h6>
+                    <h6 class="mb-0">Data de Nascimento</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    fip@jukmuh.al
+                    {{ patientService.selectedPatient?.dateOfBirth | date:"dd/MM/yy" }}
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-3">
-                    <h6 class="mb-0">Phone</h6>
+                    <h6 class="mb-0">CPF</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    (239) 816-9029
+                    {{ patientService.selectedPatient?.cpf }}
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-3">
-                    <h6 class="mb-0">Mobile</h6>
+                    <h6 class="mb-0">Endereço</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    (320) 380-4539
+                    {{ patientService.selectedPatient?.address }}
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-3">
-                    <h6 class="mb-0">Address</h6>
+                    <h6 class="mb-0">Telefone</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    Bay Area, San Francisco, CA
+                    {{ patientService.selectedPatient?.phoneNumber }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Data de Ingresso</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ patientService.selectedPatient?.entryDate | date:"dd/MM/yy" }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Local da Doença</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ patientService.selectedPatient?.disease }}
                 </div>
             </div>
         </div>
@@ -70,6 +88,11 @@
                 </div>
                 <div class="tab-pane" id="map">
                     Mapa Google
+
+                    
+                    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+                    <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
                 </div>
             </div>
         </div>
