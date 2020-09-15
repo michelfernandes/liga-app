@@ -1,12 +1,19 @@
+
 <div class="container">
+    
     <div class="row">
         <div class="col-md-12 ">
+            <div class="float-right">
+                <button class="btn btn-success float-right" [hidden]="editMode" (click)="editMode = !editMode">Editar</button>
+                <button class="btn btn-success float-right" [hidden]="!editMode" (click)="editMode = !editMode">Cancelar</button>
+                <button class="btn btn-success float-right" [hidden]="!editMode" (click)="editMode = !editMode">Salvar</button>
+              </div>
             <div class="row">
                 <div class="col-sm-3">
                     <h6 class="mb-0">Nome</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.name }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.name"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -15,7 +22,7 @@
                     <h6 class="mb-0">Data de Nascimento</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.dateOfBirth | date:"dd/MM/yy" }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -24,7 +31,7 @@
                     <h6 class="mb-0">CPF</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.cpf }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.cpf"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -33,7 +40,7 @@
                     <h6 class="mb-0">Endereço</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.address }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.address"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -42,7 +49,7 @@
                     <h6 class="mb-0">Telefone</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.phoneNumber }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.phoneNumber"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -51,7 +58,7 @@
                     <h6 class="mb-0">Data de Ingresso</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.entryDate | date:"dd/MM/yy" }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.entryDate | date:'dd/MM/yy'"></app-editable-field>
                 </div>
             </div>
             <hr>
@@ -60,7 +67,7 @@
                     <h6 class="mb-0">Local da Doença</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                    {{ patientService.selectedPatient?.disease }}
+                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.disease"></app-editable-field>
                 </div>
             </div>
         </div>
@@ -77,22 +84,126 @@
                 <li class="nav-item">
                     <a href="" data-target="#map" data-toggle="tab" class="nav-link">Mapa</a>
                 </li>
+                <li class="nav-item">
+                    <a href="" data-target="#obs" data-toggle="tab" class="nav-link">Observações</a>
+                </li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="financial">
 
-                    Tabela financeira
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Janeiro</th>
+                            <th scope="col">Fevereiro</th>
+                            <th scope="col">Março</th>
+                            <th scope="col">Abril</th>
+                            <th scope="col">Maio</th>
+                            <th scope="col">Junho</th>
+                            <th scope="col">Julho</th>
+                            <th scope="col">Agosto</th>
+                            <th scope="col">Setembro</th>
+                            <th scope="col">Outubro</th>
+                            <th scope="col">Novembro</th>
+                            <th scope="col">Dezembro</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Medicamentos</th>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Exames</th>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Rancho</th>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Outros</th>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">TOTAL</th>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                            <td>R$20,00</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
                 <div class="tab-pane" id="visits">
                     Visitas
                 </div>
                 <div class="tab-pane" id="map">
-                    Mapa Google
-
                     
-                    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
-                    <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+                    <agm-map [latitude]="latitude" [zoom]="zoom" [longitude]="longitude">
+                    <agm-marker  [latitude]="latitude" [longitude]="longitude"></agm-marker>
                 </agm-map>
+                </div>
+                <div class="tab-pane" id="obs">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Example textarea</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                      </form>
                 </div>
             </div>
         </div>

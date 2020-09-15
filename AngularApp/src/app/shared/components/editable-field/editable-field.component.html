@@ -1,0 +1,21 @@
+
+<!-- If EditMode === false -->
+<span *ngIf="editMode === false">
+    <span>{{value}}</span>
+</span>
+
+<!-- If Edit Mode === true -->
+
+<span *ngIf="editMode === true">
+    <input type="text" [value]="value" class="form-control">
+</span>
+
+
+
+
+<!-- <span [ngSwitch]="type">
+    <span *ngSwitchCase="'textarea'"> <textarea class="form-control" id="exampleFormControlTextarea1" value="teco" rows="3"></textarea></span>
+    <span *ngSwitchDefault> 
+        <input type="text" value="TICO" class="form-control">
+    </span>
+</span> -->

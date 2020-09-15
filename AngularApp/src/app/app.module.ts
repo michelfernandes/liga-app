@@ -11,6 +11,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { DetailPatientComponent } from './patient/detail-patient/detail-patient.component';
 import { AgmCoreModule } from '@agm/core';
+import { EditableFieldComponent } from './shared/components/editable-field/editable-field.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AgmCoreModule } from '@agm/core';
     NewPatientComponent,
     SidebarComponent,
     HeaderComponent,
-    DetailPatientComponent
+    DetailPatientComponent,
+    EditableFieldComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'xxx'
     })
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
