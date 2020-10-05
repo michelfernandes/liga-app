@@ -1,3 +1,19 @@
-body{
-    background-color: #1d1919;
+.sidebar{
+    z-index: 9999;
+    position: fixed;
+    overflow-x: hidden;
+    top: 55px;
+    left: 250px;
+    width: 250px;
+    overflow-y: auto;
+    margin-left: -250px;
+    background-color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    height: 100%;
+    box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
+    -webkit-box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
+    -moz-box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
 }
