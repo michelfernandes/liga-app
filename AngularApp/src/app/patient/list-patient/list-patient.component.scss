@@ -1,0 +1,30 @@
+#patientListContainer{
+    margin: 30px;
+}
+
+.patient-table thead tr {
+    background-color: #f1f3f9;
+}
+
+.patient-table thead tr th {
+    cursor: pointer;
+ 
+}
+.patient-table thead tr th:after {
+    position: relative;
+    content: '\f0dc';
+    font-family: 'FontAwesome';
+    margin-left: .25rem;
+    margin-top: .15rem;
+    opacity: .4;
+    font-size: .875rem;
+}
+
+.patient-table tbody tr:hover {
+    background-color: #f1f3f9;
+}
+.patient-table .patient-btn-link {
+    text-align: left;
+    width: auto;
+    padding: 0;
+}

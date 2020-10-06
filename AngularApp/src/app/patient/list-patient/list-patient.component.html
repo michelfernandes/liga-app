@@ -1,33 +1,55 @@
-<div class="float-right">
-  <button class="btn btn-success float-right" routerLink="/patient/new">Novo Paciente</button>
+
+<div id="patientListContainer">
+    <div class="row">
+        
+            
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card liga-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4">
+                            <input type="text" id="searchPatients" class="form-control mb-4" placeholder="Search"/>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <button class="btn btn-info" routerLink="/patient/new"><i class="fas fa-user-plus"> Novo Paciente</i>  </button>
+                        </div>
+
+                    </div>
+                    <table class="table table-responsive-sm patient-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Data de Nascimento</th>
+                                <th>CPF</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
+                                <th>Data de Ingresso</th>
+                                <th>Local da Doença</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let patient of patientService.patients">
+                                <td><a [routerLink]="['/patient', patient._id, 'details']">{{patient.name}}</a></td>
+                                <td>{{patient.dateOfBirth | date:"dd/MM/yy"}}</td>
+                                <td>{{patient.cpf}}</td>
+                                <td>{{patient.address}}</td>
+                                <td>{{patient.phoneNumber}}</td>
+                                <td>{{patient.entryDate | date:"dd/MM/yy"}}</td>
+                                <td>{{patient.disease}}</td>
+                                <td>
+                                    <a class="btn" (click)="onDelete(patient._id,patientForm)">
+                                        <i class="far fa-trash-alt"> Delete</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<table class="table table-bordered table-sm">
-  <thead>
-      <tr>
-          <th>Nome</th>
-          <th>Data de Nascimento</th>
-          <th>CPF</th>
-          <th>Endereço</th>
-          <th>Telefone</th>
-          <th>Data de Ingresso</th>
-          <th>Local da Doença</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let patient of patientService.patients">
-          <td><a [routerLink]="['/patient', patient._id, 'details']">{{patient.name}}</a></td>
-          <td>{{patient.dateOfBirth | date:"dd/MM/yy"}}</td>
-          <td>{{patient.cpf}}</td>
-          <td>{{patient.address}}</td>
-          <td>{{patient.phoneNumber}}</td>
-          <td>{{patient.entryDate | date:"dd/MM/yy"}}</td>
-          <td>{{patient.disease}}</td>
-          <td>
-              <a class="btn" (click)="onDelete(patient._id,patientForm)">
-                  <i class="material-icons">delete</i>
-              </a>
-          </td>
-      </tr>
-  </tbody>
-</table>
+
