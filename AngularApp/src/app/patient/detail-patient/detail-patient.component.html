@@ -1,219 +1,253 @@
-
-<div class="container">
-    
+<div id="patientDetailContainer" >
     <div class="row">
-        <div class="col-md-12 ">
-            <div class="float-right">
-                <button class="btn btn-success float-right" [hidden]="editMode" (click)="editMode = !editMode">Editar</button>
-                <button class="btn btn-success float-right" [hidden]="!editMode" (click)="editMode = !editMode">Cancelar</button>
-                <button class="btn btn-success float-right" [hidden]="!editMode" (click)="editMode = !editMode">Salvar</button>
-              </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Nome</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.name"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Data de Nascimento</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">CPF</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.cpf"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Endereço</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.address"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Telefone</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.phoneNumber"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Data de Ingresso</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.entryDate | date:'dd/MM/yy'"></app-editable-field>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-3">
-                    <h6 class="mb-0">Local da Doença</h6>
-                </div>
-                <div class="col-sm-9 text-secondary">
-                    <app-editable-field [editMode]="editMode" [value]="patientService.selectedPatient?.disease"></app-editable-field>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#financial" data-toggle="tab" class="nav-link active">Financeiro</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#visits" data-toggle="tab" class="nav-link">Visitas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#map" data-toggle="tab" class="nav-link">Mapa</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#obs" data-toggle="tab" class="nav-link">Observações</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="financial">
+        <div class="col">
+            <div class="card liga-card">
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-12 ">
 
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">
-                                <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  2020
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">2019</a>
-                                  <a class="dropdown-item" href="#">2018</a>
+                            <div class="row mb-3">
+                                <div class="col-sm-9">
+                                    <h3>{{patientService.selectedPatient?.name}}</h3>
                                 </div>
-                              </div>
-                            </th>
-                            <th scope="col">Janeiro</th>
-                            <th scope="col">Fevereiro</th>
-                            <th scope="col">Março</th>
-                            <th scope="col">Abril</th>
-                            <th scope="col">Maio</th>
-                            <th scope="col">Junho</th>
-                            <th scope="col">Julho</th>
-                            <th scope="col">Agosto</th>
-                            <th scope="col">Setembro</th>
-                            <th scope="col">Outubro</th>
-                            <th scope="col">Novembro</th>
-                            <th scope="col">Dezembro</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">Medicamentos</th>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Exames</th>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Rancho</th>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Outros</th>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">TOTAL</th>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                            <td>R$20,00</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                </div>
-                <div class="tab-pane" id="visits">
-                    Visitas
-                </div>
-                <div class="tab-pane" id="map">
-                    
-                    <agm-map [latitude]="latitude" [zoom]="zoom" [longitude]="longitude">
-                    <agm-marker  [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                </agm-map>
-                </div>
-                <div class="tab-pane" id="obs">
-                    <form>
-                        <div class="form-group">
-                          <label for="exampleFormControlTextarea1">Example textarea</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-info float-right" [hidden]="editMode"
+                                    (click)="editMode = !editMode">Editar</button>
+                                    <button class="btn btn-light float-right" [hidden]="!editMode"
+                                        (click)="editMode = !editMode">Cancelar</button>
+                                    <button class="btn btn-info float-right" [hidden]="!editMode"
+                                        (click)="editMode = !editMode">Salvar</button>
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nome:</h6>
+                                </div>
+                                <div class="col-sm-3 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.name"></app-editable-field>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Data de Nascimento</h6>
+                                </div>
+                                <div class="col-sm-3 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'">
+                                    </app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Data de Nascimento</h6>
+                                </div>
+                                <div class="col-sm-3 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'">
+                                    </app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">CPF</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.cpf"></app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Endereço</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.address"></app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Telefone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.phoneNumber"></app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Data de Ingresso</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.entryDate | date:'dd/MM/yy'">
+                                    </app-editable-field>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Local da Doença</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <app-editable-field [editMode]="editMode"
+                                        [value]="patientService.selectedPatient?.disease"></app-editable-field>
+                                </div>
+                            </div>
                         </div>
-                      </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="" data-target="#financial" data-toggle="tab"
+                                        class="nav-link active">Financeiro</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" data-target="#visits" data-toggle="tab" class="nav-link">Visitas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" data-target="#map" data-toggle="tab" class="nav-link">Mapa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" data-target="#obs" data-toggle="tab" class="nav-link">Observações</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="financial">
+
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            2020
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <a class="dropdown-item" href="#">2019</a>
+                                                            <a class="dropdown-item" href="#">2018</a>
+                                                        </div>
+                                                    </div>
+                                                </th>
+                                                <th scope="col">Janeiro</th>
+                                                <th scope="col">Fevereiro</th>
+                                                <th scope="col">Março</th>
+                                                <th scope="col">Abril</th>
+                                                <th scope="col">Maio</th>
+                                                <th scope="col">Junho</th>
+                                                <th scope="col">Julho</th>
+                                                <th scope="col">Agosto</th>
+                                                <th scope="col">Setembro</th>
+                                                <th scope="col">Outubro</th>
+                                                <th scope="col">Novembro</th>
+                                                <th scope="col">Dezembro</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Medicamentos</th>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Exames</th>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Rancho</th>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Outros</th>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">TOTAL</th>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                                <td>R$20,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane" id="visits">
+                                    Visitas
+                                </div>
+                                <div class="tab-pane" id="map">
+
+                                    <agm-map [latitude]="latitude" [zoom]="zoom" [longitude]="longitude">
+                                        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                                    </agm-map>
+                                </div>
+                                <div class="tab-pane" id="obs">
+                                    <form>
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

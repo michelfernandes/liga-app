@@ -1,3 +1,34 @@
 agm-map {
     height: 300px;
 }
+#patientDetailContainer{
+    margin: 30px;
+}
+
+.detail-tabs .nav {
+    border-bottom: 1px #ddd solid;
+    margin-bottom: 1.5rem;
+}
+
+.detail-tabs .nav .nav-item .nav-link {
+    color: #777;
+}
+
+.detail-tabs .nav .nav-item .nav-link.active {
+    background-color: transparent;
+    border-bottom: 4px #4455AB solid;
+    color: #4455AB;
+    font-weight: 700;
+    border-radius: 0;
+}
+
+.detail-tabs .tab-content > .tab-pane {
+    display: block;     
+    height: 0;          
+    overflow-y: hidden; 
+}
+
+.detail-tabs .tab-content > .active {
+    height: auto;       
+}
+

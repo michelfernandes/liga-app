@@ -1,10 +1,6 @@
 
 <div id="patientListContainer">
     <div class="row">
-        
-            
-    </div>
-    <div class="row">
         <div class="col">
             <div class="card liga-card">
                 <div class="card-body">
@@ -40,8 +36,8 @@
                                 <td>{{patient.entryDate | date:"dd/MM/yy"}}</td>
                                 <td>{{patient.disease}}</td>
                                 <td>
-                                    <a class="btn" (click)="onDelete(patient._id,patientForm)">
-                                        <i class="far fa-trash-alt"> Delete</i>
+                                    <a class="btn btn-sm  btn-outline-danger" (click)="onDelete(patient._id,patientForm)">
+                                        <i class="far fa-trash-alt"> Excluir</i>
                                     </a>
                                 </td>
                             </tr>

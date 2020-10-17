@@ -1,42 +1,69 @@
-<form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
-    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="patientService.selectedPatient._id">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="name">Nome:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name" class="form-control" id="name" >
-          </div>
-          <div class="form-group col-md-3">
-            <label for="cpf">CPF:</label>
-            <input type="text" name="cpf" #name="ngModel" [(ngModel)]="patientService.selectedPatient.cpf" class="form-control" id="cpf" >
-          </div>
-          <div class="form-group col-md-3">
-            <label for="dateOfBirth">Data de Nascimento:</label>
-            <input type="date" name="dateOfBirth" #name="ngModel" [(ngModel)]="patientService.selectedPatient.dateOfBirth" class="form-control" id="dateOfBirth" >
-          </div>          
+<div id="patientNewContainer">
+    <div class="row">
+        <div class="col">
+            <div class="card liga-card">
+                <div class="card-body">
+                    <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="patientService.selectedPatient._id">
+                        <div class="form-row d-flex justify-content-center">
+                            <div class="form-group col-md-12">
+                                <label for="name">Nome:</label>
+                                <input type="text" name="name" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.name" class="form-control" id="name">
+                            </div>
+                            
+                        </div>
+                        <div class="form-row d-flex justify-content-center">
+                            <div class="form-group col-md-4">
+                                <label for="dateOfBirth">Data de Nascimento:</label>
+                                <input type="date" name="dateOfBirth" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.dateOfBirth" class="form-control"
+                                    id="dateOfBirth">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" name="cpf" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.cpf" class="form-control" id="cpf">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="phoneNumber">Telefone:</label>
+                                <input type="text" name="phoneNumber" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.phoneNumber" class="form-control"
+                                    id="phoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="address">Endereço:</label>
+                                <input type="text" name="address" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.address" class="form-control"
+                                    id="address">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="disease">Local da Doença:</label>
+                                <input type="text" name="disease" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.disease" class="form-control"
+                                    id="disease">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="entryDate">Data de Ingresso:</label>
+                                <input type="date" name="entryDate" #name="ngModel"
+                                    [(ngModel)]="patientService.selectedPatient.entryDate" class="form-control"
+                                    id="entryDate">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary float-right">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-row">
-          <div class="form-group col-md-8">
-            <label for="address">Endereço:</label>
-            <input type="text" name="address" #name="ngModel" [(ngModel)]="patientService.selectedPatient.address" class="form-control" id="address" >
-          </div>
-          <div class="form-group col-md-4">
-            <label for="phoneNumber">Telefone:</label>
-            <input type="text" name="phoneNumber" #name="ngModel" [(ngModel)]="patientService.selectedPatient.phoneNumber" class="form-control" id="phoneNumber" >
-          </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="entryDate">Data de Ingresso:</label>
-            <input type="date" name="entryDate" #name="ngModel" [(ngModel)]="patientService.selectedPatient.entryDate" class="form-control" id="entryDate" >
-          </div>
-          <div class="form-group col-md-5">
-            <label for="disease">Local da Doença:</label>
-            <input type="text" name="disease" #name="ngModel" [(ngModel)]="patientService.selectedPatient.disease" class="form-control" id="disease" >
-          </div>
-    </div>  
-     
-    <button type="submit" class="btn btn-primary float-right">Submit</button>
-  </form>
+</div>
 <!-- 
 <div>
     <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)"></form>
