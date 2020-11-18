@@ -17,3 +17,29 @@
     -webkit-box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
     -moz-box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
 }
+
+
+.liga-sidebar ul li {
+    padding: .5rem .75rem;
+    border-radius: 8px;
+    margin: .5rem 0;
+}
+.liga-sidebar ul li:hover {
+    background-color: #f5f8fe;
+}
+
+.liga-sidebar ul li.active {
+    background-color: #f5f8fe;
+}
+
+.liga-sidebar ul li.active a {
+    color: #4455AB;
+    font-weight: 700;
+}
+
+.liga-sidebar ul li a {
+    color: #777;
+}
+.liga-sidebar ul li a:hover {
+    text-decoration: none;
+}

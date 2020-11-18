@@ -8,33 +8,17 @@
 
                             <div class="row mb-3">
                                 <div class="col-sm-9">
-                                    <h3>{{patientService.selectedPatient?.name}}</h3>
+                                    <input [hidden]="!editMode" type="text" [(ngModel)]="patientService.selectedPatient.name" class="form-control">
+                                    <h2 [hidden]="editMode">{{patientService.selectedPatient?.name}}</h2>
                                 </div>
                                 <div class="col-sm-3">
                                     <button class="btn btn-info float-right" [hidden]="editMode"
-                                    (click)="editMode = !editMode">Editar</button>
+                                    (click)="editMode = !editMode"><i class="fas fa-pencil-alt"></i></button>
                                     <button class="btn btn-light float-right" [hidden]="!editMode"
                                         (click)="editMode = !editMode">Cancelar</button>
                                     <button class="btn btn-info float-right" [hidden]="!editMode"
-                                        (click)="editMode = !editMode">Salvar</button>
+                                        (click)="onSaveChanges()">Salvar</button>
                                 </div>                                
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Nome:</h6>
-                                </div>
-                                <div class="col-sm-3 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.name"></app-editable-field>
-                                </div>
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Data de Nascimento</h6>
-                                </div>
-                                <div class="col-sm-3 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'">
-                                    </app-editable-field>
-                                </div>
                             </div>
                             <hr>
                             <div class="row">
@@ -42,9 +26,8 @@
                                     <h6 class="mb-0">Data de Nascimento</h6>
                                 </div>
                                 <div class="col-sm-3 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yy'">
-                                    </app-editable-field>
+                                    <input [hidden]="!editMode" type="date" [ngModel]="patientService.selectedPatient.dateOfBirth | date:'yyyy-MM-dd'" (ngModelChange)="patientService.selectedPatient.dateOfBirth = $event" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.dateOfBirth | date:'dd/MM/yyyy'}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -53,8 +36,8 @@
                                     <h6 class="mb-0">CPF</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.cpf"></app-editable-field>
+                                    <input [hidden]="!editMode" type="text" [(ngModel)]="patientService.selectedPatient.cpf" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.cpf}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -63,8 +46,9 @@
                                     <h6 class="mb-0">Endereço</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.address"></app-editable-field>
+                                    <input [hidden]="!editMode" type="text" [(ngModel)]="patientService.selectedPatient.address" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.address}}</span>
+
                                 </div>
                             </div>
                             <hr>
@@ -73,8 +57,8 @@
                                     <h6 class="mb-0">Telefone</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.phoneNumber"></app-editable-field>
+                                    <input [hidden]="!editMode" type="text" [(ngModel)]="patientService.selectedPatient.phoneNumber" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.phoneNumber}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -83,9 +67,8 @@
                                     <h6 class="mb-0">Data de Ingresso</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.entryDate | date:'dd/MM/yy'">
-                                    </app-editable-field>
+                                    <input [hidden]="!editMode" type="date" [ngModel]="patientService.selectedPatient.entryDate | date:'yyyy-MM-dd'" (ngModelChange)="patientService.selectedPatient.entryDate = $event" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.entryDate | date:'dd/MM/yyyy'}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -94,8 +77,8 @@
                                     <h6 class="mb-0">Local da Doença</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <app-editable-field [editMode]="editMode"
-                                        [value]="patientService.selectedPatient?.disease"></app-editable-field>
+                                    <input [hidden]="!editMode" type="text" [(ngModel)]="patientService.selectedPatient.disease" class="form-control">
+                                    <span [hidden]="editMode">{{patientService.selectedPatient?.disease}}</span>
                                 </div>
                             </div>
                         </div>

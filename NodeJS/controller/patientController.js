@@ -42,7 +42,7 @@ router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
 
-    var patient = new Patient({
+    var patient = {
         name: req.body.name,
         cpf: req.body.cpf,
         dateOfBirth: req.body.dateOfBirth,
@@ -50,8 +50,8 @@ router.put('/:id', (req, res) => {
         address: req.body.address,
         entryDate: req.body.entryDate,
         disease: req.body.disease
-    });
-    Patient.findByIdAndUpdate(req.params.id, { $set: patient }, { new: true }, (err, doc) => {
+    };
+    Patient.findByIdAndUpdate(req.params.id, { $set: patient }, { new: true, useFindAndModify: false }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error Patient Update :' + JSON.stringify(err, undefined, 2)); }
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-editable-field',
@@ -13,8 +13,10 @@ export class EditableFieldComponent implements OnInit {
 
   @Input() name: string = "name";
 
-  @Input() value: string;
+  @Input() valueModel: string;
 
+  @Output() valueModelChange = new EventEmitter<string>();
+  
   constructor() { 
   }
 

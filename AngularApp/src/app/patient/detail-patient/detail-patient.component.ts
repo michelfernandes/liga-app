@@ -30,9 +30,7 @@ export class DetailPatientComponent implements OnInit {
     this.patientService = patientService;
   }
 
-  ngOnInit(): void {
-    
-
+  ngOnInit(): void {   
     this.mapsAPILoader.load().then(() => {
       this.geoCoder = new google.maps.Geocoder;
       this.getPatient();
@@ -44,6 +42,13 @@ export class DetailPatientComponent implements OnInit {
     this.patientService.getPatient(_id).subscribe((res) => {
       this.patientService.selectedPatient = res as Patient;
       this.getLatAndLong(this.patientService.selectedPatient.address);
+    });
+  }
+
+  onSaveChanges(): void{
+    debugger;
+    this.patientService.putPatient(this.patientService.selectedPatient).subscribe((res) => {
+      this.editMode=false;
     });
   }
 
