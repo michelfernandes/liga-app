@@ -46,7 +46,6 @@ export class DetailPatientComponent implements OnInit {
   }
 
   onSaveChanges(): void{
-    debugger;
     this.patientService.putPatient(this.patientService.selectedPatient).subscribe((res) => {
       this.editMode=false;
     });

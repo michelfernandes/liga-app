@@ -18,14 +18,14 @@
     -moz-box-shadow: 0px 1px 20px 0px rgba(23, 3, 79, 0.05);
 }
 
-
 .liga-sidebar ul li {
     padding: .5rem .75rem;
-    border-radius: 8px;
+    border-radius: 20px;
     margin: .5rem 0;
 }
 .liga-sidebar ul li:hover {
     background-color: #f5f8fe;
+    cursor: pointer;
 }
 
 .liga-sidebar ul li.active {

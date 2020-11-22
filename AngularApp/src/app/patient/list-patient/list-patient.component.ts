@@ -23,7 +23,6 @@ export class ListPatientComponent implements OnInit {
 
   refreshPatientList() {
     this.patientService.getPatientList().subscribe((res) => {
-      debugger;
       this.patientService.patients = res as Patient[];
     });
   }
