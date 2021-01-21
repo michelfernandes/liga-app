@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const { mongoose } = require('./db.js');
 var patientController = require('./controller/patientController.js');
+var financialDataController = require('./controller/financialDataController.js');
 
 var app = express();
 app.use(bodyParser.json());
@@ -13,3 +14,4 @@ app.listen(3000, () => console.log('Server started at port : 3000'));
 
 
 app.use('/patient', patientController);
+app.use('/financialData', financialDataController);

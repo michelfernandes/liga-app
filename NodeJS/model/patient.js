@@ -1,6 +1,7 @@
+const { Schema } = require('mongoose');
 const mongoose = require('mongoose');
 
-var Patient = mongoose.model('Patient',{
+let PatientSchema = new mongoose.Schema({
     name: {type: String},
     cpf: {type: String},
     dateOfBirth: {type: Date},
@@ -10,4 +11,4 @@ var Patient = mongoose.model('Patient',{
     disease: {type: String}
 });
 
-module.exports = { Patient };
+module.exports = mongoose.model('Patient',PatientSchema);

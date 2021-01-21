@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/LigaDB', (err) => {
+const uri = 'mongodb+srv://ADMIN:KPc32gFJOuD4LWMu@cluster0.ndhlx.mongodb.net/test?retryWrites=true&w=majority';
+
+mongoose.connect(uri,{ useNewUrlParser: true }, (err) => {
+    debugger;
     if (!err)
         console.log('MongoDB connection succeeded.');
     else

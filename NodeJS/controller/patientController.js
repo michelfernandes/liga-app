@@ -2,7 +2,7 @@ const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 
-var { Patient } = require('../model/patient');
+var Patient = require('../model/patient');
 
 // => localhost:3000/patient/
 router.get('/', (req, res) => {
@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
-
     Patient.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error Retriving Patient :' + JSON.stringify(err, undefined, 2)); }
