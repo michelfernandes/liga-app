@@ -3,6 +3,7 @@ var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
 
 var Patient = require('../model/patient');
+var FinancialData = require('../model/financialData');
 
 // => localhost:3000/patient/
 router.get('/', (req, res) => {
@@ -19,6 +20,22 @@ router.get('/:id', (req, res) => {
         if (!err) { res.send(doc); }
         else { console.log('Error Retriving Patient :' + JSON.stringify(err, undefined, 2)); }
     });
+});
+
+router.get('/:id/financialData/:year', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+    FinancialData.find({
+        patient: req.params.id,
+        date: {
+            $gte: new Date(req.params.year, 1, 1), 
+            $lt: new Date(req.params.year, 12, 31)
+        }
+    }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error Retriving FinancialData :' + JSON.stringify(err, undefined, 2)); }
+    }).sort({date: 'asc'});
 });
 
 router.post('/', (req, res) => {

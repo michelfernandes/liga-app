@@ -22,18 +22,22 @@ export class PatientService {
   }
 
   getPatient(_id: string) {
-    return this.http.get(this.baseURL + `/${_id}`);
+    return this.http.get(this.baseURL + `${_id}`);
   }
 
   getPatientList() {
     return this.http.get(this.baseURL);
   }
 
+  getPatientFinancialData(_id:string, year:string) {
+    return this.http.get(this.baseURL + `${_id}/financialdata/${year}`);
+  }
+
   putPatient(patient: Patient) {
-    return this.http.put(this.baseURL + `/${patient._id}`, patient);
+    return this.http.put(this.baseURL + `${patient._id}`, patient);
   }
 
   deletePatient(_id: string) {
-    return this.http.delete(this.baseURL + `/${_id}`);
+    return this.http.delete(this.baseURL + `${_id}`);
   }
 }

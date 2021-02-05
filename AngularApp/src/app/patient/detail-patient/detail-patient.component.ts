@@ -24,6 +24,88 @@ export class DetailPatientComponent implements OnInit {
   // Control Variables
   editMode:boolean = false;
 
+  financialDataObject: { [key: string]: any };
+
+  /*{
+    'Medicamentos': [
+      {
+        value: 0.00,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12.01,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+    ],
+    'Rancho': [
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      },
+    ]
+  };*/
+
+  testData = {
+    'Medicamentos': [
+      {
+        value: 12,
+        date: '14/01',
+        type: 'medicamentos'
+      }
+    ],
+    'Exames': [],
+    'Rancho': [],
+    'Outros': []
+  };
+
   patientService:PatientService;
 
   constructor(patientService:PatientService, private route: ActivatedRoute, private mapsAPILoader:MapsAPILoader) { 
@@ -34,6 +116,7 @@ export class DetailPatientComponent implements OnInit {
     this.mapsAPILoader.load().then(() => {
       this.geoCoder = new google.maps.Geocoder;
       this.getPatient();
+      this.getPatientFinancialData();
     });
   }
 
@@ -42,6 +125,18 @@ export class DetailPatientComponent implements OnInit {
     this.patientService.getPatient(_id).subscribe((res) => {
       this.patientService.selectedPatient = res as Patient;
       this.getLatAndLong(this.patientService.selectedPatient.address);
+    });
+  }
+
+  getPatientFinancialData(): void {
+
+    const _id = this.route.snapshot.paramMap.get('id');
+    let year = '2014';
+
+    
+
+    this.patientService.getPatientFinancialData(_id,year).subscribe((res) => {
+      this._buildFinancialDataObject(res, '2014');
     });
   }
 
@@ -64,5 +159,37 @@ export class DetailPatientComponent implements OnInit {
         window.alert('Geocoder failed due to: ' + status);
       }
     });
+  }
+
+  _buildFinancialDataObject(financialData, year){
+    let patientId = this.route.snapshot.paramMap.get('id');
+    let financialDataObj = {
+      'Medicamentos': [...new Array(12)].map((e,i)=> ({
+        value: 0,
+        date: new Date(year, i, 15), 
+        type: 'Medicamentos',
+        patient: patientId
+      })),
+      'Exames':[...new Array(12)].map((e,i)=> ({
+        value: 0,
+        date: new Date(year, i, 15), 
+        type: 'Exames',
+        patient: patientId
+      })),
+      'Rancho':[...new Array(12)].map((e,i)=> ({
+        value: 0,
+        date: new Date(year, i, 15), 
+        type: 'Rancho',
+        patient: patientId
+      })),
+      'Outros':[...new Array(12)].map((e,i)=> ({
+        value: 0,
+        date: new Date(year, i, 15), 
+        type: 'Outros',
+        patient: patientId
+      }))
+    };
+    this.financialDataObject = financialDataObj;
+    console.log(this.financialDataObject);
   }
 }

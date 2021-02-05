@@ -29,7 +29,7 @@ import { EditableFieldComponent } from './shared/components/editable-field/edita
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'xxx'
+      apiKey: ''
     })
   ],
   exports: [],
